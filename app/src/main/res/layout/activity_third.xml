@@ -6,59 +6,143 @@
     android:layout_height="match_parent"
     tools:context=".ThirdActivity">
 
+    <ImageButton
+        android:id="@+id/imageButtonSendEmail"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/rounded_button"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+
+        app:layout_constraintStart_toEndOf="@+id/txtWeb"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonPhoneMarcar2"
+        app:srcCompat="@android:drawable/sym_action_email" />
+
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/txtPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="124dp"
         android:ems="10"
+        android:hint="Ingresa tu numero"
         android:inputType="phone"
         android:text=""
-        android:hint="Ingresa tu numero"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextWeb"
+        android:id="@+id/txtPhone2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:ems="10"
+        android:hint="Ingresa tu numero2"
+        android:inputType="phone"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtWeb" />
+
+    <EditText
+        android:id="@+id/txtEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Ingresa un email"
+        android:inputType="textEmailAddress"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPhone2" />
+
+    <EditText
+        android:id="@+id/txtWeb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:ems="10"
+        android:hint="Ingresa tu web"
         android:inputType="text"
         android:text=""
-        android:hint="Ingresa tu web"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPhone" />
 
     <ImageButton
         android:id="@+id/imageButtonPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_marginTop="124dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextNumber"
-        app:layout_constraintTop_toTopOf="parent"
-        android:padding="8dp"
-        app:srcCompat="@android:drawable/ic_menu_call"
         android:background="@drawable/rounded_button"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtPhone2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/sym_call_outgoing"
+
         />
 
     <ImageButton
         android:id="@+id/imageButtonWeb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editTextWeb"
-        app:layout_constraintTop_toBottomOf="@+id/imageButtonPhone"
-        android:padding="8dp"
-        app:srcCompat="@android:drawable/ic_menu_share"
         android:background="@drawable/rounded_button"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtWeb"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonPhone"
+        app:srcCompat="@android:drawable/stat_notify_sync"
 
         />
+
+    <ImageButton
+        android:id="@+id/imageButtonContact"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/rounded_button"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toEndOf="@+id/txtWeb"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonSendEmail"
+        app:srcCompat="@android:drawable/checkbox_on_background" />
+
+    <ImageButton
+        android:id="@+id/imageButtonSendEmailBody"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/rounded_button"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toEndOf="@+id/txtWeb"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonContact"
+        app:srcCompat="@android:drawable/sym_action_email" />
+
+    <ImageButton
+        android:id="@+id/imageButtonPhoneMarcar2"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/rounded_button"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/txtWeb"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonWeb"
+
+        app:srcCompat="@android:drawable/sym_call_incoming" />
 
     <ImageButton
         android:id="@+id/imageButtonCamara"
