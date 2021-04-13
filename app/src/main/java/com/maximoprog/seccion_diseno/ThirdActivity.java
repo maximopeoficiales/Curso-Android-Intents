@@ -1,6 +1,7 @@
 package com.maximoprog.seccion_diseno;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -18,7 +20,25 @@ import com.maximoprog.seccion_diseno.databinding.ActivityThirdBinding;
 
 public class ThirdActivity extends AppCompatActivity {
     public final int PHONE_CALL_CODE = 100;
+    public final int CAM_RESULT_CODE = 111;
     ActivityThirdBinding binding;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        switch (requestCode) {
+            case CAM_RESULT_CODE:
+                if (resultCode == Activity.RESULT_OK) {
+//                    si tomo una foto muestro la uri en un message
+                    sayMessage("Result : " + data.toUri(0));
+                } else {
+                    sayMessage("No hay tomado un foto");
+                }
+                break;
+            default:
+                super.onActivityResult(requestCode, resultCode, data);
+        }
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +48,10 @@ public class ThirdActivity extends AppCompatActivity {
         binding = ActivityThirdBinding.inflate(getLayoutInflater());
         //se carga la vista con el binding
         setContentView(binding.getRoot());
+
+//        activar flecha para atras
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
 //        boton para hacer llamadas
         binding.imageButtonPhone.setOnClickListener(new View.OnClickListener() {
@@ -147,8 +171,8 @@ public class ThirdActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent iEmail = new Intent(Intent.ACTION_SEND);
-                iEmail.setType("message/rfc822");
+                Intent iEmail = new Intent(Intent.ACTION_SEND, Uri.parse("maximopeoficiales@gmail.com"));
+                iEmail.setType("plain/text");
                 iEmail.putExtra(Intent.EXTRA_SUBJECT, "Titulo de Email");
                 iEmail.putExtra(Intent.EXTRA_TEXT, "Hola bro esto es un correo");
                 iEmail.putExtra(Intent.EXTRA_EMAIL, new String[]{"maximopeoficiales1@gmail.com", "maximopeoficiales2@gmail.com"});
@@ -161,6 +185,16 @@ public class ThirdActivity extends AppCompatActivity {
                 }
             }
         });
+//        intent implicito de camara
+        binding.imageButtonCamara.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                crea un intent con result
+                Intent intentCamara = new Intent("android.media.action.IMAGE_CAPTURE");
+                startActivityForResult(intentCamara, CAM_RESULT_CODE);
+            }
+        });
+
 
     }
 

@@ -5,13 +5,26 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_my_icon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/ic_my_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SeccionDiseno">
-        <activity android:name=".ThirdActivity" />
-        <activity android:name=".SecondActivity" />
+        <!--        Se le indica que el main activity sea su padre de actividad-->
+        <activity
+            android:name=".ThirdActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".SecondActivity"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

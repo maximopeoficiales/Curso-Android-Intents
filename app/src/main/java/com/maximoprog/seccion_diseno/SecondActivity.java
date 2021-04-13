@@ -20,6 +20,10 @@ public class SecondActivity extends AppCompatActivity {
         binding = ActivitySecondBinding.inflate(getLayoutInflater());
 //        se carga la vista con el binding
         setContentView(binding.getRoot());
+
+
+//        activar flecha para atras
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 //        obtengo los extras
         Bundle bundle = getIntent().getExtras();
 

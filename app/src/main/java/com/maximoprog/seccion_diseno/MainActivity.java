@@ -20,6 +20,12 @@ public class MainActivity extends AppCompatActivity {
         this.binding = ActivityMainBinding.inflate(getLayoutInflater());
 //        se carga la vista con el binding
         setContentView(binding.getRoot());
+
+//    forzar y cargar icono en el Action Bar
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.mipmap.ic_my_icon_foreground);
+
+
 //        se cargan listerner
         this.binding.btnNewClick.setOnClickListener(new View.OnClickListener() {
             @Override
